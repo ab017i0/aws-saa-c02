@@ -1,0 +1,20 @@
+Dev s3 bucket name = cfst-3035-7b0f046bd27daf1fa19c4021a54-s3bucketdev-1xcwspv3q6k3h
+
+Prod s3 bucket name = cfst-3035-7b0f046bd27daf1fa19c4021a5-s3bucketprod-1ofcv8f8ahl74
+
+Engineering s3 bucket name = cfst-3035-7b0f046bd27daf1fa19-s3bucketengineering-15my4f0vxftmw
+
+Secret s3 bucket name = cfst-3035-7b0f046bd27daf1fa19c4021-s3bucketsecret-1ibj61rj6eckg
+
+
+aws iam create-policy --policy-name DevS3ReadAccess --policy-document file://dev_s3_read_access.json
+
+arn:aws:iam::513659881019:policy/DevS3ReadAccess
+
+aws iam attach-role-policy --role-name DEV_ROLE --policy-arn "arn:aws:iam::513659881019:policy/DevS3ReadAccess"
+
+i-0bf3c847987f349c2
+
+aws ec2 associate-iam-instance-profile --instance-id i-0bf3c847987f349c2 --iam-instance-profile Name="DEV_PROFILE"
+
+aws ec2 describe-instances --instance-ids i-0bf3c847987f349c2
